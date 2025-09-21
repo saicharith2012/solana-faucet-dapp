@@ -1,10 +1,25 @@
-import "./App.css";
+import {
+  ConnectionProvider,
+  WalletProvider,
+} from "@solana/wallet-adapter-react";
+import {
+  WalletModalProvider,
+  WalletMultiButton,
+} from "@solana/wallet-adapter-react-ui";
+
+import "@solana/wallet-adapter-react-ui/styles.css";
 
 function App() {
   return (
-    <div className="w-screen h-screen flex justify-center items-center">
-      hello, world!
-    </div>
+    <ConnectionProvider endpoint={"https://api.devnet.solana.com"}>
+      <WalletProvider wallets={[]} autoConnect>
+        <WalletModalProvider>
+          <div className="w-screen h-screen flex flex-col justify-center items-center font-roboto">
+            <WalletMultiButton />
+          </div>
+        </WalletModalProvider>
+      </WalletProvider>
+    </ConnectionProvider>
   );
 }
 
