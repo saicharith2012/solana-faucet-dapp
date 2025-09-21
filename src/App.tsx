@@ -8,6 +8,7 @@ import {
 } from "@solana/wallet-adapter-react-ui";
 
 import "@solana/wallet-adapter-react-ui/styles.css";
+import { RequestAirdrop } from "./components/RequestAirdrop";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <WalletModalProvider>
           <div className="w-screen h-screen flex flex-col justify-center items-center font-roboto">
             <WalletMultiButton />
+            <RequestAirdrop/>
           </div>
         </WalletModalProvider>
       </WalletProvider>
