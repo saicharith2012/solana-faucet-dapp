@@ -11,6 +11,8 @@ export default function SignMessage() {
   const [success, setSuccess] = useState("");
 
   function signUserMessage() {
+    setSuccess("");
+    setError("");
     startTransition(async () => {
       try {
         if (!publicKey) {
@@ -49,6 +51,10 @@ export default function SignMessage() {
         }
       }
     });
+  }
+
+  if (!publicKey?.toString()) {
+    return;
   }
 
   return (
